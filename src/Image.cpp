@@ -43,3 +43,16 @@ void Image::remove_last_vec()
 {
     m_table.resize(m_table.size() - 1);
 }
+
+int Image::Pixel::sum_of_squares_rgb() const
+{
+    return (m_red * m_red) + (m_green * m_green) + (m_blue * m_blue);
+}
+
+Image::Pixel Image::Pixel::operator-(const Image::Pixel & other) const
+{
+    auto new_pxl = Image::Pixel(this->m_red - other.m_red,
+                         this->m_green - other.m_green,
+                         this->m_blue - other.m_blue);
+    return new_pxl;
+}

@@ -153,18 +153,3 @@ void SeamCarver::RemoveHorizontalSeam(const Seam & seam)
         m_image.delete_pixel_horizontal(column, seam[id]);
     }
 }
-/*
-void SeamCarver::print() const
-{
-    m_image.print();
-}
-
-void SeamCarver::print_energy_table()
-{
-    for (size_t row = 0; row < m_image.row_size(); ++row) {
-        for (size_t col = 0; col < m_image.column_size(); ++col) {
-            std::cout << GetPixelEnergy(col, row) << " ";
-        }
-        std::cout << std::endl;
-    }
-}*/
