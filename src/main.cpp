@@ -3,8 +3,8 @@
 
 #include <fstream>
 #include <iostream>
-
-static std::vector<std::vector<Image::Pixel>> ReadImageFromCSV(std::ifstream & input)
+namespace {
+static std::vector<std::vector<Image::Pixel>> ReadImageFromCSV(std::ifstream & input) // NOLINT
 {
     size_t width, height;
     input >> width >> height;
@@ -21,7 +21,7 @@ static std::vector<std::vector<Image::Pixel>> ReadImageFromCSV(std::ifstream & i
     return table;
 }
 
-static void WriteImageToCSV(const SeamCarver & carver, std::ofstream & output)
+static void WriteImageToCSV(const SeamCarver & carver, std::ofstream & output) // NOLINT
 {
     const size_t width = carver.GetImageWidth();
     const size_t height = carver.GetImageHeight();
@@ -34,7 +34,7 @@ static void WriteImageToCSV(const SeamCarver & carver, std::ofstream & output)
         }
     }
 }
-
+} // namespace
 int main(int argc, char * argv[])
 {
     // Check command line arguments

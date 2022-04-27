@@ -53,6 +53,9 @@ public:
      */
     void RemoveVerticalSeam(const Seam & seam);
 
+
+/*    void print() const;
+    void print_energy_table();*/
 private:
     Image m_image;
 };
