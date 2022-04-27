@@ -52,7 +52,7 @@ int Image::Pixel::sum_of_squares_rgb() const
 Image::Pixel Image::Pixel::operator-(const Image::Pixel & other) const
 {
     auto new_pxl = Image::Pixel(this->m_red - other.m_red,
-                         this->m_green - other.m_green,
-                         this->m_blue - other.m_blue);
+                                this->m_green - other.m_green,
+                                this->m_blue - other.m_blue);
     return new_pxl;
 }
