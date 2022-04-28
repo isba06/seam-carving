@@ -105,6 +105,7 @@ SeamCarver::Seam SeamCarver::FindVerticalSeam() const
     size_t sum_energy_min = static_cast<size_t>(-1);
     for (size_t column_id = 0; column_id < m_image.column_size(); ++column_id) {
         Seam seam;
+        // seam.reserve(m_image.column_size());
         auto id = column_id;
         size_t sum_energy = GetPixelEnergy(id, 0);
         double min;
@@ -129,7 +130,7 @@ SeamCarver::Seam SeamCarver::FindVerticalSeam() const
                 ++id;
             }
             sum_energy += min;
-            seam.push_back(id);
+            seam.emplace_back(id);
         }
         if (sum_energy < sum_energy_min) {
             sum_energy_min = sum_energy;
@@ -144,7 +145,7 @@ void SeamCarver::RemoveVerticalSeam(const Seam & seam)
     for (size_t id = 0, row = 0; row < m_image.row_size(); ++id, ++row) {
         m_image.delete_pixel_vertical(seam[id], row);
     }
-    m_image.remove_last_vec();
+    m_image.remove_last_column();
 }
 
 void SeamCarver::RemoveHorizontalSeam(const Seam & seam)

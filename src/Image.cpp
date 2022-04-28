@@ -35,13 +35,13 @@ void Image::delete_pixel_horizontal(size_t columnId, size_t rowId)
 
 void Image::delete_pixel_vertical(size_t columnId, size_t rowId)
 {
-    for (size_t row = rowId; row < m_table[columnId].size() - 1; ++row) {
-        m_table[columnId][row] = m_table[columnId][row + 1];
+    for (size_t column = columnId; column < m_table.size() - 1; ++column) {
+        m_table[column][rowId] = m_table[column + 1][rowId];
     }
 }
-void Image::remove_last_vec()
+void Image::remove_last_column()
 {
-    m_table.resize(m_table.size() - 1);
+    m_table.pop_back();
 }
 
 int Image::Pixel::sum_of_squares_rgb() const

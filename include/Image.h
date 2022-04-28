@@ -26,5 +26,5 @@ struct Image
     size_t row_size() const;
     void delete_pixel_vertical(size_t, size_t);
     void delete_pixel_horizontal(size_t, size_t);
-    void remove_last_vec();
+    void remove_last_column();
 };
